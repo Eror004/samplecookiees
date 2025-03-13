@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Better Sweet Cookies</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Cookie&display=swap" rel="stylesheet">
+
+    <style>
+        /* Menggunakan CSS asli yang telah dimodifikasi dengan Bootstrap */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background-color: #f3f4f6; color: #333; }
+        .hero-section { background: url('https://c.tenor.com/K5v6yNAGbtYAAAAd/tenor.gif') no-repeat center center/cover; color: white; text-align: center; padding: 100px 20px; }
+        .produk-item img { transition: transform 0.3s ease; }
+        .produk-item:hover img { transform: scale(1.05); }
+        footer { background-color: #ff4081; color: white; padding: 20px; text-align: center; }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Better Sweet Cookies</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#produk">Produk</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#deskripsi">Deskripsi</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#beli">Beli</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section d-flex flex-column align-items-center justify-content-center">
+        <h1 class="display-4">Selamat Datang di Better Sweet Cookies</h1>
+        <p class="lead">Rasakan kenikmatan cookies dengan berbagai varian rasa yang pasti memanjakan lidah!</p>
+        <a href="#produk" class="btn btn-primary btn-lg">Lihat Produk</a>
+    </section>
+
+    <!-- Produk Section -->
+    <section id="produk" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Beli Disini</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card produk-item">
+                        <img src="https://i.postimg.cc/7HLd5JdR/Chocolate-Hazelnut-Cookies-1-4.jpg" class="card-img-top">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Choco Hazelnut</h5>
+                            <p class="card-text">Harga: Rp 15.000</p>
+                            <a href="https://wa.me/6285811744577" class="btn btn-success">Beli</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card produk-item">
+                        <img src="https://buttermilkbysam.com/wp-content/uploads/2021/09/choc-hazelnut-cookies-819x1024.webp" class="card-img-top">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Choco</h5>
+                            <p class="card-text">Harga: Rp 15.000</p>
+                            <a href="https://wa.me/6285811744577" class="btn btn-success">Beli</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card produk-item">
+                        <img src="https://i.postimg.cc/25jkb8Nx/Vegan-Matcha-Cookies-9.jpg" class="card-img-top">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Matcha</h5>
+                            <p class="card-text">Harga: Rp 15.000</p>
+                            <a href="https://wa.me/6285811744577" class="btn btn-success">Beli</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Better Sweet Cookies</p>
+            <div>
+                <a href="https://instagram.com" class="text-white me-3">Instagram</a>
+                <a href="https://wa.me/yourwhatsapplink" class="text-white me-3">WhatsApp</a>
+                <a href="https://linkedin.com" class="text-white">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

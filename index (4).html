@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sate Soto Kuning Bpk Aip S - Putra Gunung Salak</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        'bebas': ['"Bebas Neue"', 'cursive'],
+                    },
+                    colors: {
+                        sky: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            900: '#0c4a6e',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Background with Beautiful Sky */
+        .bg-mountain {
+            background-image: url('https://images.unsplash.com/photo-1517483000871-1dbf64a6e1c6?q=80&w=2000&auto=format&fit=crop'); /* Beautiful blue sky with clouds */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            filter: blur(2px);
+            transform: scale(1.05); /* Prevent white edges from blur */
+        }
+        
+        /* Glassmorphism Utilities */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+        
+        .glass-header {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        /* Animation Utilities */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes slideUpFade {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .card-enter {
+            animation: slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            opacity: 0;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(255,255,255,0.1); 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(56, 189, 248, 0.6); 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(2, 132, 199, 0.8); 
+        }
+    </style>
+</head>
+<body class="font-sans text-slate-700 antialiased overflow-x-hidden bg-slate-50">
+
+    <!-- Fixed Background Layer -->
+    <div class="fixed inset-0 bg-mountain z-0"></div>
+    <div class="fixed inset-0 bg-gradient-to-b from-sky-900/60 via-sky-800/40 to-sky-50/90 z-0"></div>
+
+    <!-- Main Content Wrapper -->
+    <div class="relative z-10 min-h-screen flex flex-col">
+        
+        <!-- Hero Section -->
+        <header class="relative pt-32 pb-16 px-4 text-center">
+            <div class="max-w-4xl mx-auto">
+                <div class="inline-block animate-float mb-4">
+                    <div class="bg-white/20 backdrop-blur-md p-4 rounded-full border border-white/30 shadow-2xl">
+                        <span class="text-5xl filter drop-shadow-lg">⛰️</span>
+                    </div>
+                </div>
+                <h1 class="text-5xl md:text-7xl font-bebas text-yellow-400 mb-2 tracking-wider drop-shadow-lg uppercase">
+                    SATE SOTO KUNING
+                </h1>
+                <h2 class="text-3xl md:text-5xl font-bebas text-yellow-300 mb-6 drop-shadow-md tracking-wide">
+                    BPK AIP S
+                </h2>
+                <div class="inline-block px-8 py-3 bg-white/10 backdrop-blur-md rounded-full border border-white/20 mb-8">
+                    <p class="text-white font-bold tracking-wider uppercase text-lg md:text-2xl">
+                        Putra Gunung Salak
+                    </p>
+                </div>
+                <p class="text-sky-50 max-w-2xl mx-auto text-lg leading-relaxed drop-shadow opacity-90">
+                    Nikmati kehangatan soto kuning legendaris dan sate pilihan dengan suasana pegunungan yang segar.
+                </p>
+            </div>
+        </header>
+
+        <!-- Menu Section -->
+        <main class="flex-grow px-4 pb-24 max-w-7xl mx-auto w-full">
+            
+            <!-- Category Filter (Floating Glass) -->
+            <div class="sticky top-6 z-40 mb-12">
+                <div class="glass-nav rounded-full p-2 shadow-xl shadow-sky-900/5 mx-auto max-w-max flex flex-wrap justify-center gap-2">
+                    <button onclick="filterMenu('all')" class="filter-btn active group relative px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-300 overflow-hidden">
+                        <span class="relative z-10 group-[.active]:text-white text-slate-600 group-hover:text-sky-600 group-[.active]:group-hover:text-white transition-colors">Semua Menu</span>
+                        <div class="absolute inset-0 bg-sky-500 opacity-0 group-[.active]:opacity-100 transition-opacity duration-300 rounded-full"></div>
+                    </button>
+                    <button onclick="filterMenu('sate')" class="filter-btn group relative px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-300 overflow-hidden">
+                        <span class="relative z-10 group-[.active]:text-white text-slate-600 group-hover:text-sky-600 group-[.active]:group-hover:text-white transition-colors">🍢 Sate</span>
+                        <div class="absolute inset-0 bg-sky-500 opacity-0 group-[.active]:opacity-100 transition-opacity duration-300 rounded-full"></div>
+                    </button>
+                    <button onclick="filterMenu('soto')" class="filter-btn group relative px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-300 overflow-hidden">
+                        <span class="relative z-10 group-[.active]:text-white text-slate-600 group-hover:text-sky-600 group-[.active]:group-hover:text-white transition-colors">🍲 Soto</span>
+                        <div class="absolute inset-0 bg-sky-500 opacity-0 group-[.active]:opacity-100 transition-opacity duration-300 rounded-full"></div>
+                    </button>
+                    <button onclick="filterMenu('sop')" class="filter-btn group relative px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-300 overflow-hidden">
+                        <span class="relative z-10 group-[.active]:text-white text-slate-600 group-hover:text-sky-600 group-[.active]:group-hover:text-white transition-colors">🥣 Sop</span>
+                        <div class="absolute inset-0 bg-sky-500 opacity-0 group-[.active]:opacity-100 transition-opacity duration-300 rounded-full"></div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Menu Grid -->
+            <div id="menuGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                <!-- JavaScript will populate this -->
+            </div>
+        </main>
+    </div>
+
+    <!-- Floating Cart Button -->
+    <div id="floatingCart" class="fixed bottom-6 right-6 z-50 hidden transition-all duration-500 hover:-translate-y-2">
+        <button onclick="openCartModal()" class="group bg-sky-600 hover:bg-sky-500 text-white pl-5 pr-6 py-4 rounded-full shadow-2xl shadow-sky-600/40 flex items-center gap-4 border-4 border-white/20 backdrop-blur-sm transition-all">
+            <div class="relative">
+                <span class="text-2xl transform group-hover:scale-110 transition-transform block">🛒</span>
+                <span id="cartCount" class="absolute -top-3 -right-3 bg-red-500 text-white text-[10px] font-bold h-5 w-5 flex items-center justify-center rounded-full shadow-md border border-white">0</span>
+            </div>
+            <div class="text-left leading-tight">
+                <div class="text-xs text-sky-100 font-medium">Total Pesanan</div>
+                <div id="cartTotalPreview" class="text-lg font-bold font-sans">Rp 0</div>
+            </div>
+        </button>
+    </div>
+
+    <!-- Cart Modal (Glass) -->
+    <div id="cartModal" class="fixed inset-0 z-[60] hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <!-- Backdrop -->
+        <div class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm transition-opacity opacity-0 modal-backdrop" onclick="closeCartModal()"></div>
+
+        <!-- Panel -->
+        <div class="fixed inset-0 z-10 overflow-y-auto">
+            <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+                <div class="relative transform overflow-hidden rounded-3xl bg-white text-left shadow-2xl transition-all sm:my-8 sm:w-full sm:max-w-lg modal-panel translate-y-full opacity-0">
+                    
+                    <!-- Modal Header -->
+                    <div class="bg-gradient-to-r from-sky-500 to-blue-600 px-6 py-5 flex justify-between items-center">
+                        <h3 class="text-xl font-bold text-white flex items-center gap-2">
+                            <span>📝</span> Rincian Pesanan
+                        </h3>
+                        <button onclick="closeCartModal()" class="text-white/70 hover:text-white bg-white/10 hover:bg-white/20 rounded-full p-2 transition">
+                            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- Modal Body -->
+                    <div class="bg-slate-50 px-6 py-6 max-h-[50vh] overflow-y-auto">
+                        <div id="cartItems" class="space-y-4">
+                            <!-- Cart Items Injected Here -->
+                        </div>
+                        <div id="emptyCart" class="flex flex-col items-center justify-center py-10 text-slate-400">
+                            <div class="text-6xl mb-4 opacity-50 grayscale">🥘</div>
+                            <p class="font-medium">Belum ada menu yang dipilih</p>
+                        </div>
+                    </div>
+
+                    <!-- Modal Footer / Form -->
+                    <div class="bg-white px-6 py-6 shadow-[0_-4px_20px_-5px_rgba(0,0,0,0.05)]">
+                        <div class="flex justify-between items-center mb-6 pb-4 border-b border-slate-100">
+                            <span class="text-slate-500 font-medium">Total Pembayaran</span>
+                            <span id="totalPrice" class="text-2xl font-bold text-sky-600">Rp 0</span>
+                        </div>
+
+                        <div class="space-y-4 mb-6">
+                            <div>
+                                <label for="customerName" class="block text-xs font-bold text-slate-400 uppercase mb-1 ml-1">Nama Pemesan</label>
+                                <input type="text" id="customerName" class="w-full px-4 py-3 rounded-xl bg-slate-50 border-2 border-slate-100 focus:border-sky-400 focus:bg-white focus:ring-0 transition-colors outline-none text-slate-700 font-medium placeholder-slate-300" placeholder="Masukkan nama Anda...">
+                            </div>
+                            <div>
+                                <label for="tableNumber" class="block text-xs font-bold text-slate-400 uppercase mb-1 ml-1">Nomor Meja</label>
+                                <input type="number" id="tableNumber" class="w-full px-4 py-3 rounded-xl bg-slate-50 border-2 border-slate-100 focus:border-sky-400 focus:bg-white focus:ring-0 transition-colors outline-none text-slate-700 font-medium placeholder-slate-300" placeholder="Opsional (Contoh: 5)">
+                            </div>
+                        </div>
+
+                        <button onclick="sendWhatsAppOrder()" class="w-full bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white py-4 rounded-xl font-bold text-lg shadow-lg shadow-sky-500/25 flex items-center justify-center gap-2 transition-all active:scale-[0.98]">
+                            <span>Kirim Pesanan</span>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- Data Menu ---
+        const menuData = [
+            { id: 1, name: 'SATE AYAM', category: 'sate', price: 25000, description: 'Daging ayam pilihan dengan bumbu kacang madura yang kental.', image: '🍢' },
+            { id: 2, name: 'SATE KAMBING', category: 'sate', price: 35000, description: 'Sate kambing muda empuk, disajikan dengan bumbu kecap pedas.', image: '🍢' },
+            { id: 3, name: 'SATE SAPI', category: 'sate', price: 35000, description: 'Potongan daging sapi has dalam yang juicy, dibakar sempurna.', image: '🍢' },
+            { id: 4, name: 'SOP IGA', category: 'sop', price: 45000, description: 'Sop Iga Sapi kuah bening segar, daging mudah lepas dari tulang.', image: '🥣' },
+            { id: 5, name: 'SOTO AYAM', category: 'soto', price: 22000, description: 'Soto Ayam kuah kuning santan khas Bogor yang gurih.', image: '🍲' },
+            { id: 6, name: 'SOTO KIKIL', category: 'soto', price: 28000, description: 'Kikil sapi kenyal berpadu dengan kuah santan kuning kaya rempah.', image: '🍲' },
+            { id: 7, name: 'SOTO BABAT', category: 'soto', price: 28000, description: 'Babat sapi bersih dan empuk dalam kuah soto kuning legendaris.', image: '🍲' },
+            { id: 8, name: 'SOTO MIE', category: 'soto', price: 25000, description: 'Mie kuning, bihun, risoles, dan daging sapi dalam kuah segar.', image: '🍜' }
+        ];
+
+        let cart = [];
+        let currentFilter = 'all';
+        const whatsappNumber = '6281234567890';
+
+        // --- Initialization ---
+        document.addEventListener('DOMContentLoaded', () => {
+            renderMenu();
+        });
+
+        // --- Core Functions ---
+        function renderMenu() {
+            const grid = document.getElementById('menuGrid');
+            grid.innerHTML = '';
+
+            const items = currentFilter === 'all' 
+                ? menuData 
+                : menuData.filter(item => item.category === currentFilter);
+
+            items.forEach((item, index) => {
+                const delay = index * 100;
+                const card = document.createElement('div');
+                card.className = 'glass-card rounded-3xl overflow-hidden flex flex-col hover:shadow-xl hover:shadow-sky-200/50 transition-all duration-300 group border border-white/60 card-enter relative';
+                card.style.animationDelay = `${delay}ms`;
+
+                // Icon background color based on category (subtle pastel)
+                let bgClass = 'bg-slate-50';
+                let textClass = 'text-slate-600';
+                
+                if(item.category === 'sate') { bgClass = 'bg-orange-50'; textClass = 'text-orange-600'; }
+                if(item.category === 'soto') { bgClass = 'bg-yellow-50'; textClass = 'text-yellow-600'; }
+                if(item.category === 'sop') { bgClass = 'bg-emerald-50'; textClass = 'text-emerald-600'; }
+
+                card.innerHTML = `
+                    <div class="h-40 ${bgClass} flex items-center justify-center relative overflow-hidden group-hover:h-44 transition-all duration-500">
+                        <div class="text-6xl transform group-hover:scale-125 group-hover:rotate-6 transition-all duration-500 drop-shadow-sm">${item.image}</div>
+                        
+                        <!-- Badge -->
+                        <div class="absolute top-4 right-4 bg-white/80 backdrop-blur-sm px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider ${textClass} shadow-sm">
+                            ${item.category}
+                        </div>
+                    </div>
+                    
+                    <div class="p-6 flex flex-col flex-grow bg-white/50 backdrop-blur-sm">
+                        <div class="flex-grow">
+                            <h3 class="text-lg font-bold text-slate-800 mb-2 leading-tight">${item.name}</h3>
+                            <p class="text-slate-500 text-sm leading-relaxed line-clamp-2">${item.description}</p>
+                        </div>
+                        
+                        <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+                            <div class="flex flex-col">
+                                <span class="text-xs text-slate-400 font-semibold">Harga</span>
+                                <span class="text-lg font-bold text-sky-600">Rp ${item.price.toLocaleString('id-ID')}</span>
+                            </div>
+                            <button onclick="addToCart(${item.id})" class="h-10 w-10 rounded-full bg-slate-800 hover:bg-sky-500 text-white flex items-center justify-center shadow-lg shadow-slate-300 hover:shadow-sky-300 transition-all active:scale-90 group-active:bg-sky-600">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
+                            </button>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function filterMenu(category) {
+            currentFilter = category;
+            
+            // Update UI buttons
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+                const textSpan = btn.querySelector('span');
+                // Reset button text content to check logic is simple
+                if(btn.getAttribute('onclick').includes(category)) {
+                    btn.classList.add('active');
+                }
+            });
+
+            // Re-render
+            const grid = document.getElementById('menuGrid');
+            // Quick fade out effect could be nice here, but simple re-render is fine
+            renderMenu();
+        }
+
+        function addToCart(id) {
+            const item = menuData.find(i => i.id === id);
+            const existing = cart.find(c => c.id === id);
+            
+            if(existing) {
+                existing.quantity++;
+            } else {
+                cart.push({...item, quantity: 1});
+            }
+            
+            updateCartUI();
+            showToast(`✨ ${item.name} ditambahkan!`);
+        }
+
+        function updateCartUI() {
+            const countBadge = document.getElementById('cartCount');
+            const pricePreview = document.getElementById('cartTotalPreview');
+            const floatingCart = document.getElementById('floatingCart');
+            
+            const totalQty = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            
+            countBadge.innerText = totalQty;
+            pricePreview.innerText = `Rp ${totalPrice.toLocaleString('id-ID')}`;
+            
+            if(totalQty > 0) {
+                floatingCart.classList.remove('hidden');
+            } else {
+                floatingCart.classList.add('hidden');
+            }
+
+            // Also update modal if open (optional but good)
+            const modalTotal = document.getElementById('totalPrice');
+            if(modalTotal) modalTotal.innerText = `Rp ${totalPrice.toLocaleString('id-ID')}`;
+        }
+
+        // --- Modal Logic ---
+        function openCartModal() {
+            const modal = document.getElementById('cartModal');
+            const backdrop = modal.querySelector('.modal-backdrop');
+            const panel = modal.querySelector('.modal-panel');
+            
+            renderCartItems();
+            
+            modal.classList.remove('hidden');
+            // Animate in
+            setTimeout(() => {
+                backdrop.classList.remove('opacity-0');
+                panel.classList.remove('translate-y-full', 'opacity-0');
+            }, 10);
+            
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeCartModal() {
+            const modal = document.getElementById('cartModal');
+            const backdrop = modal.querySelector('.modal-backdrop');
+            const panel = modal.querySelector('.modal-panel');
+            
+            backdrop.classList.add('opacity-0');
+            panel.classList.add('translate-y-full', 'opacity-0');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                document.body.style.overflow = '';
+            }, 300);
+        }
+
+        function renderCartItems() {
+            const container = document.getElementById('cartItems');
+            const emptyState = document.getElementById('emptyCart');
+            
+            if(cart.length === 0) {
+                container.innerHTML = '';
+                emptyState.classList.remove('hidden');
+                emptyState.classList.add('flex');
+                return;
+            }
+            
+            emptyState.classList.add('hidden');
+            emptyState.classList.remove('flex');
+            
+            container.innerHTML = cart.map(item => `
+                <div class="flex items-center gap-4 p-3 bg-white rounded-xl border border-slate-100 shadow-sm">
+                    <div class="h-12 w-12 rounded-full bg-sky-50 flex items-center justify-center text-xl shrink-0">
+                        ${item.image}
+                    </div>
+                    <div class="flex-grow min-w-0">
+                        <h4 class="font-bold text-slate-700 truncate">${item.name}</h4>
+                        <p class="text-xs text-slate-400">@ Rp ${item.price.toLocaleString('id-ID')}</p>
+                    </div>
+                    <div class="flex items-center bg-slate-100 rounded-lg p-1 gap-1">
+                        <button onclick="updateItemQty(${item.id}, -1)" class="w-7 h-7 flex items-center justify-center bg-white text-slate-600 rounded shadow-sm hover:text-red-500 font-bold transition">-</button>
+                        <span class="w-6 text-center text-sm font-bold text-slate-700">${item.quantity}</span>
+                        <button onclick="updateItemQty(${item.id}, 1)" class="w-7 h-7 flex items-center justify-center bg-white text-slate-600 rounded shadow-sm hover:text-sky-500 font-bold transition">+</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function updateItemQty(id, change) {
+            const item = cart.find(c => c.id === id);
+            if(item) {
+                item.quantity += change;
+                if(item.quantity <= 0) {
+                    cart = cart.filter(c => c.id !== id);
+                }
+                updateCartUI();
+                renderCartItems();
+                
+                if(cart.length === 0) closeCartModal();
+            }
+        }
+
+        function sendWhatsAppOrder() {
+            const name = document.getElementById('customerName').value.trim();
+            const table = document.getElementById('tableNumber').value.trim();
+            
+            if(!name) {
+                alert('Mohon isi Nama Pemesan terlebih dahulu');
+                return;
+            }
+            if(cart.length === 0) return;
+
+            let text = `*Halo, Saya mau pesan makanan!* 👋%0A%0A`;
+            text += `👤 Nama: *${name}*%0A`;
+            if(table) text += `🪑 Meja: *${table}*%0A`;
+            text += `%0A*RINCIAN PESANAN:*%0A----------------------------%0A`;
+            
+            let total = 0;
+            cart.forEach(item => {
+                const sub = item.price * item.quantity;
+                total += sub;
+                text += `▫️ ${item.name} x${item.quantity}%0A   _Rp ${sub.toLocaleString('id-ID')}_%0A`;
+            });
+            
+            text += `----------------------------%0A`;
+            text += `💰 *TOTAL: Rp ${total.toLocaleString('id-ID')}*%0A`;
+            text += `----------------------------%0A`;
+            text += `Mohon diproses ya, Terima kasih!`;
+
+            const url = `https://wa.me/${whatsappNumber}?text=${text}`;
+            window.open(url, '_blank');
+            
+            // Reset
+            cart = [];
+            updateCartUI();
+            closeCartModal();
+            document.getElementById('customerName').value = '';
+        }
+
+        // --- Toast Notification ---
+        function showToast(msg) {
+            const toast = document.createElement('div');
+            toast.className = 'fixed top-4 left-1/2 -translate-x-1/2 z-[70] bg-slate-800 text-white px-6 py-3 rounded-full shadow-2xl flex items-center gap-3 text-sm font-medium transform transition-all duration-300 translate-y-[-100px] opacity-0';
+            toast.innerHTML = msg;
+            document.body.appendChild(toast);
+            
+            requestAnimationFrame(() => {
+                toast.classList.remove('translate-y-[-100px]', 'opacity-0');
+            });
+            
+            setTimeout(() => {
+                toast.classList.add('translate-y-[-100px]', 'opacity-0');
+                setTimeout(() => toast.remove(), 300);
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
